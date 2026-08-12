@@ -26,10 +26,3 @@ Característica: Manejo de errores de la API de Restful Booker
     Y intenta eliminar la reserva sin token de autenticación
     Entonces el código de respuesta debe ser 403
 
-  # Escenario que documenta el hallazgo API-002 (la API responde 500 en lugar de 400).
-  # Se etiqueta con @bug para excluirlo de la ejecución bloqueante del pipeline
-  # y se ejecuta en un job informativo que sirve como evidencia del defecto.
-  @bug @hallazgo
-  Escenario: Crear una reserva sin campos obligatorios debe retornar un error controlado
-    Cuando intenta crear una reserva sin los campos obligatorios
-    Entonces el código de respuesta debe ser 400

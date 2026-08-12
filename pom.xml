@@ -217,12 +217,6 @@
                 <artifactId>serenity-maven-plugin</artifactId>
                 <version>${serenity.version}</version>
                 <configuration>
-                    <!-- sourceDirectory: DE DONDE lee los JSON generados por las pruebas.
-                         outputDirectory: DONDE escribe el HTML.
-                         Declararlos explicitamente elimina la causa mas comun de
-                         "reporte generado pero vacio". -->
-<!--                    <sourceDirectory>${serenity.outputDirectory}</sourceDirectory>-->
-<!--                    <outputDirectory>${serenity.outputDirectory}</outputDirectory>-->
 <!--                    <projectName>${project.name}</projectName>-->
                     <tags>${tags}</tags>
                 </configuration>

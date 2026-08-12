@@ -116,13 +116,13 @@ jobs:
           retention-days: 30
 
   # ---------------------------------------------------------------------------
-  # 4. Escenarios que documentan hallazgos (@bug)
+  # 4. Escenarios que documentan hallazgos (@hallazgos)
   #    - En ejecuciones normales es informativo (no bloquea el pipeline).
   #    - Con workflow_dispatch + failure_demo=true se vuelve bloqueante y
   #      produce la evidencia de una EJECUCION FALLIDA.
   # ---------------------------------------------------------------------------
   known-issues:
-    name: Escenarios de hallazgos (@bug)
+    name: Escenarios de hallazgos (@hallazgo)
     runs-on: ubuntu-latest
     continue-on-error: ${{ github.event.inputs.failure_demo != 'true' }}
     steps:
@@ -137,7 +137,7 @@ jobs:
           cache: maven
 
       - name: Ejecutar escenarios marcados como hallazgo
-        run: mvn $MAVEN_ARGS clean verify -Dtags="@bug" -Denvironment=ci
+        run: mvn $MAVEN_ARGS clean verify -Dtags="@hallazgo" -Denvironment=ci
 
       - name: Publicar reporte de hallazgos
         if: always()

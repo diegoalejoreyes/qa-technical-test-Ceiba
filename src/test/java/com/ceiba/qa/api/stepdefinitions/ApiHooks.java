@@ -22,12 +22,12 @@ public class ApiHooks {
 
     public static final String BOOKING_ID = "bookingId";
 
-    @Before(value = "@api", order = 10)
+    @Before(value = "@api or @hallazgo", order = 10)
     public void prepareStage() {
         OnStage.setTheStage(Cast.whereEveryoneCan(CallAnApi.at(Config.bookerBaseUrl())));
     }
 
-    @After(value = "@api", order = 20)
+    @After(value = "@api or @hallazgo", order = 20)
     public void cleanUpCreatedBookings() {
         Actor actor;
         try {
