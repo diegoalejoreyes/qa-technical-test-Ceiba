@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Manejo de errores de la API de Restful Booker" skipped="0" tests="4" time="11.23" timestamp="2026-08-11 09:24:47"><testcase name="No es posible actualizar una reserva sin token de autenticación"/><testcase name="Consultar una reserva inexistente retorna 404"/><testcase name="Eliminar una reserva sin token de autenticación no es permitido"/><testcase name="Crear una reserva sin campos obligatorios debe retornar un error controlado"><failure message="[Código de estado HTTP] &#13;&#10;expected: 400&#13;&#10; but was: 500" type="org.opentest4j.AssertionFailedError">[Código de estado HTTP] &#13;
+expected: 400&#13;
+ but was: 500</failure><system-err>[Código de estado HTTP] &#13;
+expected: 400&#13;
+ but was: 500&#13;
+qa.technical.test@1.0.0/com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.elCodigoDeRespuestaDebeSer(BookingStepDefinitions.java:117)&#13;
+✽.el código de respuesta debe ser 400(file:///C:/Users/darar/Downloads/Ceiba_Cloude/qa-technical-test/src/test/resources/features/api/booking_negative.feature:35)&#13;
+</system-err></testcase></testsuite>

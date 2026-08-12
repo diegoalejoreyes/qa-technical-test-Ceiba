@@ -1,0 +1,189 @@
+name: QA Automation Pipeline
+
+# Triggers exigidos por la prueba: push y pull request.
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: ['**']
+  workflow_dispatch:
+    inputs:
+      failure_demo:
+        description: 'Ejecuta los escenarios @bug de forma bloqueante para evidenciar una ejecucion FALLIDA'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+env:
+  MAVEN_OPTS: -Dstyle.color=always
+  MAVEN_ARGS: -B -ntp
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # 1. Pruebas de API
+  # ---------------------------------------------------------------------------
+  api-tests:
+    name: API tests (Serenity + Rest Assured)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Instalar dependencias
+        run: mvn $MAVEN_ARGS -DskipTests dependency:go-offline
+
+      - name: Ejecutar suite de API
+        run: mvn $MAVEN_ARGS clean verify -Dtags="@api" -Denvironment=ci
+
+      - name: Publicar reporte Serenity (API)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: serenity-report-api
+          path: |
+            target/site/serenity
+          retention-days: 30
+
+  # ---------------------------------------------------------------------------
+  # 2. Pruebas de UI
+  # ---------------------------------------------------------------------------
+  ui-tests:
+    name: UI tests (Serenity Screenplay + Selenium)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Instalar Google Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
+      - name: Ejecutar suite de UI (headless)
+        run: mvn $MAVEN_ARGS clean verify -Dtags="@ui" -Denvironment=ci
+
+      - name: Publicar reporte Serenity (UI)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: serenity-report-ui
+          path: |
+            target/site/serenity
+          retention-days: 30
+
+  # ---------------------------------------------------------------------------
+  # 3. Prueba de rendimiento (10 VUs / ramp-up 30s / 2 min)
+  # ---------------------------------------------------------------------------
+  performance-tests:
+    name: Performance test (k6 - GET /booking)
+    runs-on: ubuntu-latest
+    needs: [api-tests]
+    steps:
+      - name: Obtener codigo
+        uses: actions/checkout@v4
+
+      - name: Instalar k6
+        uses: grafana/setup-k6-action@v1
+
+      - name: Crear carpeta de reportes
+        run: mkdir -p reports/performance
+
+      - name: Ejecutar prueba de carga
+        run: k6 run performance/get-booking-load-test.js --summary-export=reports/performance/summary-export.json
+
+      - name: Publicar reporte de performance
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-report
+          path: reports/performance
+          retention-days: 30
+
+  # ---------------------------------------------------------------------------
+  # 4. Escenarios que documentan hallazgos (@bug)
+  #    - En ejecuciones normales es informativo (no bloquea el pipeline).
+  #    - Con workflow_dispatch + failure_demo=true se vuelve bloqueante y
+  #      produce la evidencia de una EJECUCION FALLIDA.
+  # ---------------------------------------------------------------------------
+  known-issues:
+    name: Escenarios de hallazgos (@bug)
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ github.event.inputs.failure_demo != 'true' }}
+    steps:
+      - name: Obtener codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Ejecutar escenarios marcados como hallazgo
+        run: mvn $MAVEN_ARGS clean verify -Dtags="@bug" -Denvironment=ci
+
+      - name: Publicar reporte de hallazgos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: serenity-report-known-issues
+          path: target/site/serenity
+          retention-days: 30
+
+  # ---------------------------------------------------------------------------
+  # 5. Consolidacion de resultados
+  # ---------------------------------------------------------------------------
+  publish-results:
+    name: Consolidar reportes
+    runs-on: ubuntu-latest
+    needs: [api-tests, ui-tests, performance-tests]
+    if: always()
+    steps:
+      - name: Descargar todos los artefactos
+        uses: actions/download-artifact@v4
+        with:
+          path: all-reports
+
+      - name: Publicar paquete consolidado
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-reports-${{ github.run_number }}
+          path: all-reports
+          retention-days: 30
+
+      - name: Resumen de la ejecucion
+        run: |
+          {
+            echo "## Resultado de la ejecucion #${{ github.run_number }}"
+            echo ""
+            echo "| Suite | Resultado |"
+            echo "|-------|-----------|"
+            echo "| API (Serenity + Rest Assured) | ${{ needs.api-tests.result }} |"
+            echo "| UI (Serenity Screenplay) | ${{ needs.ui-tests.result }} |"
+            echo "| Performance (k6) | ${{ needs.performance-tests.result }} |"
+            echo ""
+            echo "Los reportes HTML estan disponibles en los artefactos de esta ejecucion."
+          } >> $GITHUB_STEP_SUMMARY
+
+      - name: Marcar el pipeline como fallido si alguna suite fallo
+        if: needs.api-tests.result != 'success' || needs.ui-tests.result != 'success' || needs.performance-tests.result != 'success'
+        run: |
+          echo "Alguna de las suites no finalizo correctamente."
+          exit 1

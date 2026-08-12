@@ -1,0 +1,9 @@
+target/
+reports/
+!reports/.gitkeep
+.idea/
+*.iml
+.vscode/
+.DS_Store
+*.log
+node_modules/

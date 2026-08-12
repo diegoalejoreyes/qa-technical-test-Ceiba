@@ -1,0 +1,293 @@
+[INFO] -------------------< com.ceiba.qa:qa-technical-test >-------------------
+[INFO] Building Ceiba QA Technical Test - UI + API automation 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- clean:3.2.0:clean (default-clean) @ qa-technical-test ---
+[INFO] Deleting C:\Users\darar\Downloads\Ceiba_Cloude\qa-technical-test\target
+[INFO]
+[INFO] --- resources:3.4.0:resources (default-resources) @ qa-technical-test ---
+[INFO] skip non existing resourceDirectory C:\Users\darar\Downloads\Ceiba_Cloude\qa-technical-test\src\main\resources
+[INFO]
+[INFO] --- compiler:3.13.0:compile (default-compile) @ qa-technical-test ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ qa-technical-test ---
+[INFO] Copying 8 resources from src\test\resources to target\test-classes
+[INFO]
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ qa-technical-test ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 39 source files with javac [debug target 17] to target\test-classes
+[WARNING] /C:/Users/darar/Downloads/Ceiba_Cloude/qa-technical-test/src/test/java/com/ceiba/qa/api/runners/ApiTestSuite.java:[16,10] net.serenitybdd.cucumber.CucumberWithSerenity in net.serenitybdd.cucumber has been deprecated and marked for removal
+[WARNING] /C:/Users/darar/Downloads/Ceiba_Cloude/qa-technical-test/src/test/java/com/ceiba/qa/ui/runners/UiTestSuite.java:[27,10] net.serenitybdd.cucumber.CucumberWithSerenity in net.serenitybdd.cucumber has been deprecated and marked for removal
+[INFO] /C:/Users/darar/Downloads/Ceiba_Cloude/qa-technical-test/src/test/java/com/ceiba/qa/api/runners/ApiTestSuite.java: Some input files use or override a deprecated API.
+[INFO] /C:/Users/darar/Downloads/Ceiba_Cloude/qa-technical-test/src/test/java/com/ceiba/qa/api/runners/ApiTestSuite.java: Recompile with -Xlint:deprecation for details.
+[INFO]
+[INFO] --- surefire:3.2.5:test (default-test) @ qa-technical-test ---
+[INFO] Tests are skipped.
+[INFO]
+[INFO] --- jar:3.5.0:jar (default-jar) @ qa-technical-test ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: C:\Users\darar\Downloads\Ceiba_Cloude\qa-technical-test\target\qa-technical-test-1.0.0.jar
+[INFO]
+[INFO] --- failsafe:3.0.0-M5:integration-test (default) @ qa-technical-test ---
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.ceiba.qa.api.runners.ApiTestSuite
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+
+-------------------------------------------------------------------------------------
+     _______. _______ .______       _______ .__   __.  __  .___________.____    ____
+    /       ||   ____||   _  \     |   ____||  \ |  | |  | |           |\   \  /   /
+   |   (----`|  |__   |  |_)  |    |  |__   |   \|  | |  | `---|  |----` \   \/   /
+    \   \    |   __|  |      /     |   __|  |  . `  | |  |     |  |       \_    _/
+.----)   |   |  |____ |  |\  \----.|  |____ |  |\   | |  |     |  |         |  |
+|_______/    |_______|| _| `._____||_______||__| \__| |__|     |__|         |__|
+
+ News and tutorials at https://serenity-bdd.info
+ Documentation at https://serenity-bdd.github.io
+ Test Automation Training and Coaching: https://www.serenity-dojo.com
+ Commercial Support: https://www.serenity-dojo.com/serenity-bdd-enterprise-support
+ Join the Serenity Community on Gitter: https://gitter.im/serenity-bdd/serenity-core
+-------------------------------------------------------------------------------------
+
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - Test Suite Started: Ciclo de vida de una reserva en Restful Booker
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - Test Suite Started: Manejo de errores de la API de Restful Booker
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - Test Suite Started: Ciclo de vida de una reserva en Restful Booker
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/
+
+Ciclo de vida completo (CRUD) de una reserva(ciclo-de-vida-de-una-reserva-en-restful-booker;ciclo-de-vida-completo-(crud)-de-una-reserva)
+--------------------------------------------------------------------------------
+
+@api @booking @smoke @critico @regresion
+Escenario: Ciclo de vida completo (CRUD) de una reserva                                            # src/test/resources/features/api/booking_lifecycle.feature:13
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Dado que usuario_API tiene acceso a la API de Restful Booker
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- usuario_API executes a GET on the resource /ping
+  ? Dado que usuario_API tiene acceso a la API de Restful Booker                                   # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.tieneAccesoALaApi(java.lang.String)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y se autentica con credenciales válidas
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- usuario_API se autentica en la API
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ usuario_API executes a POST on the resource /auth
+  ? Y se autentica con credenciales válidas                                                        # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.seAutenticaConCredencialesValidas()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando crea una nueva reserva
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- usuario_API executes a POST on the resource /booking
+  ? Cuando crea una nueva reserva                                                                  # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.creaUnaNuevaReserva()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces el código de respuesta debe ser 200
+  ? Entonces el código de respuesta debe ser 200                                                   # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.elCodigoDeRespuestaDebeSer(int)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y la respuesta debe contener un bookingid válido
+  ? Y la respuesta debe contener un bookingid válido                                               # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.laRespuestaDebeContenerUnBookingIdValido()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y la estructura de la respuesta debe cumplir el contrato "schemas/created-booking-schema.json"
+  ? Y la estructura de la respuesta debe cumplir el contrato "schemas/created-booking-schema.json" # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.laEstructuraDebeCumplirElContrato(java.lang.String)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y los datos de la reserva deben coincidir con los datos enviados
+  ? Y los datos de la reserva deben coincidir con los datos enviados                               # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.losDatosDebenCoincidirConLoEnviado()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y el tiempo de respuesta debe estar dentro del SLA definido
+  ? Y el tiempo de respuesta debe estar dentro del SLA definido                                    # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.elTiempoDeRespuestaDebeEstarDentroDelSla()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando consulta la reserva creada
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- usuario_API executes a GET on the resource /booking/2903
+  ? Cuando consulta la reserva creada                                                              # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.consultaLaReservaCreada()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces el código de respuesta debe ser 200
+  ? Entonces el código de respuesta debe ser 200                                                   # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.elCodigoDeRespuestaDebeSer(int)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y la estructura de la respuesta debe cumplir el contrato "schemas/booking-schema.json"
+  ? Y la estructura de la respuesta debe cumplir el contrato "schemas/booking-schema.json"         # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.laEstructuraDebeCumplirElContrato(java.lang.String)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y los datos de la reserva deben coincidir con los datos enviados
+  ? Y los datos de la reserva deben coincidir con los datos enviados                               # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.losDatosDebenCoincidirConLoEnviado()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando actualiza el nombre de la reserva a "Juan"
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- usuario_API executes a PUT on the resource /booking/2903
+  ? Cuando actualiza el nombre de la reserva a "Juan"                                              # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.actualizaElNombreDeLaReserva(java.lang.String)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces el código de respuesta debe ser 200
+  ? Entonces el código de respuesta debe ser 200                                                   # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.elCodigoDeRespuestaDebeSer(int)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando consulta la reserva creada
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- usuario_API executes a GET on the resource /booking/2903
+  ? Cuando consulta la reserva creada                                                              # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.consultaLaReservaCreada()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces el nombre de la reserva debe ser "Juan"
+  ? Entonces el nombre de la reserva debe ser "Juan"                                               # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.elNombreDeLaReservaDebeSer(java.lang.String)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y los demás datos de la reserva no deben haber cambiado
+  ? Y los demás datos de la reserva no deben haber cambiado                                        # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.losDemasDatosNoDebenHaberCambiado()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando elimina la reserva
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- usuario_API executes a DELETE on the resource /booking/2903
+  ? Cuando elimina la reserva                                                                      # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.eliminaLaReserva()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces la eliminación debe ser exitosa
+  ? Entonces la eliminación debe ser exitosa                                                       # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.laEliminacionDebeSerExitosa()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando consulta la reserva creada
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- usuario_API executes a GET on the resource /booking/2903
+  ? Cuando consulta la reserva creada                                                              # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.consultaLaReservaCreada()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces el código de respuesta debe ser 404
+  ? Entonces el código de respuesta debe ser 404                                                   # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.elCodigoDeRespuestaDebeSer(int)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- usuario_API executes a GET on the resource /booking/2903
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/
+
+Ciclo de vida completo (CRUD) de una reserva
+----------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - Test Suite Started: Manejo de errores de la API de Restful Booker
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/
+
+No es posible actualizar una reserva sin token de autenticación(manejo-de-errores-de-la-api-de-restful-booker;no-es-posible-actualizar-una-reserva-sin-token-de-autenticación)
+--------------------------------------------------------------------------------
+
+@api @booking @negativo @regresion @seguridad
+Escenario: No es posible actualizar una reserva sin token de autenticación # src/test/resources/features/api/booking_negative.feature:13
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Dado que Andrés tiene acceso a la API de Restful Booker
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés executes a GET on the resource /ping
+  ? Dado que Andrés tiene acceso a la API de Restful Booker                # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.tieneAccesoALaApi(java.lang.String)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y se autentica con credenciales válidas
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés se autentica en la API
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Andrés executes a POST on the resource /auth
+  ? Y se autentica con credenciales válidas                                # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.seAutenticaConCredencialesValidas()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando crea una nueva reserva
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés executes a POST on the resource /booking
+  ? Cuando crea una nueva reserva                                          # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.creaUnaNuevaReserva()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y intenta actualizar la reserva sin token de autenticación
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés executes a PUT on the resource /booking/3010
+  ? Y intenta actualizar la reserva sin token de autenticación             # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.intentaActualizarSinToken()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces el código de respuesta debe ser 403
+  ? Entonces el código de respuesta debe ser 403                           # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.elCodigoDeRespuestaDebeSer(int)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Andrés executes a GET on the resource /booking/3010
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Andrés executes a DELETE on the resource /booking/3010
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/
+
+No es posible actualizar una reserva sin token de autenticación
+----------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/
+
+Consultar una reserva inexistente retorna 404(manejo-de-errores-de-la-api-de-restful-booker;consultar-una-reserva-inexistente-retorna-404)
+--------------------------------------------------------------------------------
+
+@api @booking @negativo @regresion
+Escenario: Consultar una reserva inexistente retorna 404    # src/test/resources/features/api/booking_negative.feature:19
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Dado que Andrés tiene acceso a la API de Restful Booker
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés executes a GET on the resource /ping
+  ? Dado que Andrés tiene acceso a la API de Restful Booker # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.tieneAccesoALaApi(java.lang.String)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y se autentica con credenciales válidas
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés se autentica en la API
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Andrés executes a POST on the resource /auth
+  ? Y se autentica con credenciales válidas                 # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.seAutenticaConCredencialesValidas()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando consulta la reserva con id 99999999
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés executes a GET on the resource /booking/99999999
+  ? Cuando consulta la reserva con id 99999999              # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.consultaLaReservaConId(long)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces el código de respuesta debe ser 404
+  ? Entonces el código de respuesta debe ser 404            # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.elCodigoDeRespuestaDebeSer(int)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/
+
+Consultar una reserva inexistente retorna 404
+----------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/
+
+Eliminar una reserva sin token de autenticación no es permitido(manejo-de-errores-de-la-api-de-restful-booker;eliminar-una-reserva-sin-token-de-autenticación-no-es-permitido)
+--------------------------------------------------------------------------------
+
+@api @booking @negativo @regresion
+Escenario: Eliminar una reserva sin token de autenticación no es permitido # src/test/resources/features/api/booking_negative.feature:24
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Dado que Andrés tiene acceso a la API de Restful Booker
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés executes a GET on the resource /ping
+  ? Dado que Andrés tiene acceso a la API de Restful Booker                # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.tieneAccesoALaApi(java.lang.String)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y se autentica con credenciales válidas
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés se autentica en la API
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Andrés executes a POST on the resource /auth
+  ? Y se autentica con credenciales válidas                                # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.seAutenticaConCredencialesValidas()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando crea una nueva reserva
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés executes a POST on the resource /booking
+  ? Cuando crea una nueva reserva                                          # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.creaUnaNuevaReserva()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y intenta eliminar la reserva sin token de autenticación
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés executes a DELETE on the resource /booking/3092
+  ? Y intenta eliminar la reserva sin token de autenticación               # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.intentaEliminarSinToken()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces el código de respuesta debe ser 403
+  ? Entonces el código de respuesta debe ser 403                           # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.elCodigoDeRespuestaDebeSer(int)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Andrés executes a GET on the resource /booking/3092
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Andrés executes a DELETE on the resource /booking/3092
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/
+
+Eliminar una reserva sin token de autenticación no es permitido
+----------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/
+
+Crear una reserva sin campos obligatorios debe retornar un error controlado(manejo-de-errores-de-la-api-de-restful-booker;crear-una-reserva-sin-campos-obligatorios-debe-retornar-un-error-controlado)
+--------------------------------------------------------------------------------
+
+@api @booking @negativo @bug @hallazgo
+Escenario: Crear una reserva sin campos obligatorios debe retornar un error controlado # src/test/resources/features/api/booking_negative.feature:33
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Dado que Andrés tiene acceso a la API de Restful Booker
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés executes a GET on the resource /ping
+  ? Dado que Andrés tiene acceso a la API de Restful Booker                            # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.tieneAccesoALaApi(java.lang.String)
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y se autentica con credenciales válidas
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés se autentica en la API
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Andrés executes a POST on the resource /auth
+  ? Y se autentica con credenciales válidas                                            # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.seAutenticaConCredencialesValidas()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando intenta crear una reserva sin los campos obligatorios
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Andrés executes a POST on the resource /booking
+  ? Cuando intenta crear una reserva sin los campos obligatorios                       # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.intentaCrearReservaIncompleta()
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces el código de respuesta debe ser 400
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - STEP FAILURE: org.opentest4j.AssertionFailedError: [Código de estado HTTP]
+expected: 400
+ but was: 500
+  ? Entonces el código de respuesta debe ser 400                                       # com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.elCodigoDeRespuestaDebeSer(int)
+        org.opentest4j.AssertionFailedError: [Código de estado HTTP]
+        expected: 400
+         but was: 500
+                at qa.technical.test@1.0.0/com.ceiba.qa.api.stepdefinitions.BookingStepDefinitions.elCodigoDeRespuestaDebeSer(BookingStepDefinitions.java:117)
+                at ?.el código de respuesta debe ser 400(file:///C:/Users/darar/Downloads/Ceiba_Cloude/qa-technical-test/src/test/resources/features/api/booking_negative.feature:35)
+[main] ERROR net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___     _     ___   _      ___   ___
+ |_   _| | __| / __| |_   _|   | __|   /_\   |_ _| | |    | __| |   \
+   | |   | _|  \__ \   | |     | _|   / _ \   | |  | |__  | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___| |____| |___| |___/
+
+Crear una reserva sin campos obligatorios debe retornar un error controlado
+-----------------------------------------------------------------------
+[main] ERROR net.thucydides.model.logging.ConsoleLoggingListener -     Test failed at step: Entonces el código de respuesta debe ser 400
+[main] ERROR net.thucydides.model.logging.ConsoleLoggingListener -     [Código de estado HTTP] expected: 400 but was: 500
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 24.384 s <<< FAILURE! - in com.ceiba.qa.api.runners.ApiTestSuite
+[ERROR] Manejo de errores de la API de Restful Booker.Crear una reserva sin campos obligatorios debe retornar un error controlado  Time elapsed: 1.858 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError:
+[Código de estado HTTP]
+expected: 400
+ but was: 500
+
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - Test Suite Started: Compra con selección dinámica de productos
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - Test Suite Started: Gestión del carrito y validaciones del checkout
+[INFO]
+[INFO] Results:
+[INFO]
+[ERROR] Failures:
+[ERROR]   [Código de estado HTTP]
+expected: 400
+ but was: 500
+[INFO]
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0
+[INFO]

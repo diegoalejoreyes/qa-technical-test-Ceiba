@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ceiba.qa</groupId>
+    <artifactId>qa-technical-test</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>Ceiba QA Technical Test - UI + API automation</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <argLine>-Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8</argLine>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <!-- Serenity BOM: gestiona versiones de serenity, cucumber, junit5 y rest-assured -->
+        <serenity.version>5.3.7</serenity.version>
+        <rest-assured.version>5.5.0</rest-assured.version>
+
+        <maven.failsafe.version>3.2.5</maven.failsafe.version>
+        <maven.surefire.version>3.2.5</maven.surefire.version>
+
+        <!-- Suite a ejecutar. Sin puntos en el nombre para que funcione en
+             cualquier shell (PowerShell parte los argumentos con punto).
+             Uso: -Dsuite=UiTestSuite | -Dsuite=ApiTestSuite -->
+        <suite>*TestSuite</suite>
+
+        <!-- Directorio UNICO de resultados de Serenity.
+             Debe ser el mismo donde escriben las pruebas y donde lee el
+             serenity-maven-plugin. Si no coinciden, el reporte sale vacio. -->
+        <serenity.outputDirectory>${project.build.directory}/site/serenity</serenity.outputDirectory>
+        <!-- Filtro de tags de cucumber. Por defecto se excluyen los escenarios
+             marcados como @bug (documentan hallazgos y fallan intencionalmente). -->
+        <tags>not @bug</tags>
+        <!-- Entorno de serenity.conf: local | ci -->
+        <environment>local</environment>
+        <encoding>UTF-8</encoding>
+        <webdriver.base.url></webdriver.base.url>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>net.serenity-bdd</groupId>
+                <artifactId>serenity-bom</artifactId>
+                <version>${serenity.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- Core -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Screenplay (UI) -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-screenplay</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-screenplay-webdriver</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Screenplay (API) -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-screenplay-rest</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Aserciones fluidas y reportables -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-ensure</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- BDD -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Runner JUnit 4 de Serenity (CucumberWithSerenity).
+             Registra automaticamente el reporter que genera los resultados,
+             a diferencia del runner de JUnit 5 donde hay que declararlo a mano. -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Vintage engine: permite que Maven (que usa el JUnit Platform provider)
+             descubra y ejecute las clases anotadas con @RunWith de JUnit 4. -->
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Validacion de contrato / estructura de respuesta JSON -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>${rest-assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Datos de prueba -->
+        <dependency>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
+            <version>2.4.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.16</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.26.3</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+            </plugin>
+
+            <!-- Las suites Cucumber corren en la fase integration-test (failsafe) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <includes>
+<!--                        <include>**/${suite}.java</include>-->
+                        <include>**/*Test.java</include>
+                        <include>**/Test*.java</include>
+                        <include>**/*TestSuite.java</include>
+                        <include>**/When*.java</include>
+                    </includes>
+<!--                    <argLine>-Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8</argLine>-->
+                    <systemPropertyVariables>
+<!--                        <serenity.outputDirectory>${serenity.outputDirectory}</serenity.outputDirectory>-->
+<!--                        <serenity.project.name>${project.name}</serenity.project.name>-->
+                        <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+                        <environment>${environment}</environment>
+<!--                        <cucumber.filter.tags>${tags}</cucumber.filter.tags>-->
+                    </systemPropertyVariables>
+                    <parallel>classes</parallel>
+                    <parallel>methods</parallel>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
+                    <forkCount>1</forkCount>
+                    <reuseForks>true</reuseForks>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <!-- Reporte agregado de Serenity: target/site/serenity/index.html -->
+            <plugin>
+                <groupId>net.serenity-bdd.maven.plugins</groupId>
+                <artifactId>serenity-maven-plugin</artifactId>
+                <version>${serenity.version}</version>
+                <configuration>
+                    <!-- sourceDirectory: DE DONDE lee los JSON generados por las pruebas.
+                         outputDirectory: DONDE escribe el HTML.
+                         Declararlos explicitamente elimina la causa mas comun de
+                         "reporte generado pero vacio". -->
+<!--                    <sourceDirectory>${serenity.outputDirectory}</sourceDirectory>-->
+<!--                    <outputDirectory>${serenity.outputDirectory}</outputDirectory>-->
+<!--                    <projectName>${project.name}</projectName>-->
+                    <tags>${tags}</tags>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>serenity-reports</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>aggregate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,268 @@
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+
+-------------------------------------------------------------------------------------
+     _______. _______ .______       _______ .__   __.  __  .___________.____    ____
+    /       ||   ____||   _  \     |   ____||  \ |  | |  | |           |\   \  /   /
+   |   (----`|  |__   |  |_)  |    |  |__   |   \|  | |  | `---|  |----` \   \/   /
+    \   \    |   __|  |      /     |   __|  |  . `  | |  |     |  |       \_    _/
+.----)   |   |  |____ |  |\  \----.|  |____ |  |\   | |  |     |  |         |  |
+|_______/    |_______|| _| `._____||_______||__| \__| |__|     |__|         |__|
+
+ News and tutorials at https://serenity-bdd.info
+ Documentation at https://serenity-bdd.github.io
+ Test Automation Training and Coaching: https://www.serenity-dojo.com
+ Commercial Support: https://www.serenity-dojo.com/serenity-bdd-enterprise-support
+ Join the Serenity Community on Gitter: https://gitter.im/serenity-bdd/serenity-core
+-------------------------------------------------------------------------------------
+
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - Test Suite Started: Ciclo de vida de una reserva en Restful Booker
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - Test Suite Started: Manejo de errores de la API de Restful Booker
+[INFO] Running com.ceiba.qa.ui.runners.UiTestSuite
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - Test Suite Started: Compra con selección dinámica de productos
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - Test Suite Started: Gestión del carrito y validaciones del checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - Test Suite Started: Compra con selección dinámica de productos
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/
+
+Compra exitosa validando la fórmula Subtotal + Impuesto = Total(compra-con-selección-dinámica-de-productos;compra-exitosa-validando-la-fórmula-subtotal-+-impuesto-=-total)
+--------------------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Dado que Diego está en la página de login de SauceDemo
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego abre la aplicacion SauceDemo
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Diego opens the browser at https://www.saucedemo.com
+[main] INFO net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider - Starting Chrome driver instance with capabilities:
+[main] INFO net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider - Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--disable-dev-shm-usage, --no-sandbox, --disable-gpu, --window-size=1920,1080, --disable-search-engine-cho..., --disable-notifications, --incognito, --remote-allow-origins=*, remote-allow-origins=*], excludeSwitches: [enable-automation], extensions: [], prefs: {credentials_enable_service: false, profile.password_manager_enabled: false, profile.password_manager_leak_detection: false}}}
+ago. 11, 2026 9:45:21 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 151
+ago. 11, 2026 9:45:21 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for 151.0.7922.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.41.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando inicia sesión con el usuario estándar
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego enters 'standard_user' into campo Username
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego enters 'secret_sauce' into campo Password
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego clicks on boton Login
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y ordena el catálogo por precio de menor a mayor
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego selects lohi in selector de ordenamiento
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y agrega al carrito el producto de menor precio
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego clicks on boton Add to cart del producto 'Sauce Labs Onesie'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y agrega al carrito el producto de mayor precio
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego clicks on boton Add to cart del producto 'Sauce Labs Fleece Jacket'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y completa el proceso de checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego abre el carrito de compras
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Diego clicks on icono del carrito
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego continua al formulario de checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Diego clicks on boton Checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego enters 'Alita' into campo First Name
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego enters 'Rempel' into campo Last Name
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego enters '35200' into campo Zip/Postal Code
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego clicks on boton Continue
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces el subtotal debe corresponder a la suma de los precios de los productos agregados
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y el total de la orden debe cumplir la fórmula Subtotal + Impuesto = Total
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y el impuesto debe corresponder al 8% del subtotal
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y debe visualizar la confirmación de la compra
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego finaliza la compra
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Diego clicks on boton Finish
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/
+
+Compra exitosa validando la fórmula Subtotal + Impuesto = Total
+----------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/
+
+El catálogo queda ordenado de menor a mayor precio(compra-con-selección-dinámica-de-productos;el-catálogo-queda-ordenado-de-menor-a-mayor-precio)
+--------------------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Dado que Diego está en la página de login de SauceDemo
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego abre la aplicacion SauceDemo
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Diego opens the browser at https://www.saucedemo.com
+[main] INFO net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider - Starting Chrome driver instance with capabilities:
+[main] INFO net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider - Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--disable-dev-shm-usage, --no-sandbox, --disable-gpu, --window-size=1920,1080, --disable-search-engine-cho..., --disable-notifications, --incognito, --remote-allow-origins=*, remote-allow-origins=*], excludeSwitches: [enable-automation], extensions: [], prefs: {credentials_enable_service: false, profile.password_manager_enabled: false, profile.password_manager_leak_detection: false}}}
+ago. 11, 2026 9:45:29 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 151
+ago. 11, 2026 9:45:29 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for 151.0.7922.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.41.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando inicia sesión con el usuario estándar
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego enters 'standard_user' into campo Username
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego enters 'secret_sauce' into campo Password
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego clicks on boton Login
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y ordena el catálogo por precio de menor a mayor
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Diego selects lohi in selector de ordenamiento
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces los precios del catálogo deben estar ordenados de forma ascendente
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/
+
+El catálogo queda ordenado de menor a mayor precio
+----------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - Test Suite Started: Gestión del carrito y validaciones del checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/
+
+Eliminar el producto de mayor precio actualiza el contador del carrito(gestión-del-carrito-y-validaciones-del-checkout;eliminar-el-producto-de-mayor-precio-actualiza-el-contador-del-carrito)
+--------------------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Dado que Lucia está en la página de login de SauceDemo
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Lucia abre la aplicacion SauceDemo
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia opens the browser at https://www.saucedemo.com
+[main] INFO net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider - Starting Chrome driver instance with capabilities:
+[main] INFO net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider - Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--disable-dev-shm-usage, --no-sandbox, --disable-gpu, --window-size=1920,1080, --disable-search-engine-cho..., --disable-notifications, --incognito, --remote-allow-origins=*, remote-allow-origins=*], excludeSwitches: [enable-automation], extensions: [], prefs: {credentials_enable_service: false, profile.password_manager_enabled: false, profile.password_manager_leak_detection: false}}}
+ago. 11, 2026 9:45:32 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 151
+ago. 11, 2026 9:45:32 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for 151.0.7922.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.41.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y ha iniciado sesión con el usuario estándar
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Lucia enters 'standard_user' into campo Username
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Lucia enters 'secret_sauce' into campo Password
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Lucia clicks on boton Login
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando agrega 3 productos diferentes al carrito
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Lucia clicks on boton Add to cart del producto 'Sauce Labs Onesie'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Lucia clicks on boton Add to cart del producto 'Test.allTheThings() T-Shirt (Red)'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Lucia clicks on boton Add to cart del producto 'Sauce Labs Fleece Jacket'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces el contador del carrito debe ser 3
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Cuando abre el carrito de compras
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Lucia abre el carrito de compras
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on icono del carrito
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y elimina del carrito el producto de mayor precio
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Lucia clicks on boton Remove del producto 'Sauce Labs Fleece Jacket'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Entonces el contador del carrito debe ser 2
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y el producto eliminado ya no debe estar en el carrito
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- Y los productos restantes deben ser los originalmente agregados
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/
+
+Eliminar el producto de mayor precio actualiza el contador del carrito
+----------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___
+ |_   _| | __| / __| |_   _|   / __| |_   _|   /_\   | _ \ |_   _| | __| |   \
+   | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
+   |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/
+
+No es posible continuar el checkout sin los datos obligatorios(gestión-del-carrito-y-validaciones-del-checkout;no-es-posible-continuar-el-checkout-sin-los-datos-obligatorios)
+--------------------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- 1: No es posible continuar el checkout sin los datos obligatorios ({nombre=, apellido=, codigo=, mensaje=Error: First Name is required})
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Dado que Lucia está en la página de login de SauceDemo
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia abre la aplicacion SauceDemo
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-------- Lucia opens the browser at https://www.saucedemo.com
+[main] INFO net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider - Starting Chrome driver instance with capabilities:
+[main] INFO net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider - Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--disable-dev-shm-usage, --no-sandbox, --disable-gpu, --window-size=1920,1080, --disable-search-engine-cho..., --disable-notifications, --incognito, --remote-allow-origins=*, remote-allow-origins=*], excludeSwitches: [enable-automation], extensions: [], prefs: {credentials_enable_service: false, profile.password_manager_enabled: false, profile.password_manager_leak_detection: false}}}
+ago. 11, 2026 9:45:36 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 151
+ago. 11, 2026 9:45:36 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for 151.0.7922.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.41.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y ha iniciado sesión con el usuario estándar
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia enters 'standard_user' into campo Username
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia enters 'secret_sauce' into campo Password
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Login
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Cuando agrega 3 productos diferentes al carrito
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Add to cart del producto 'Sauce Labs Onesie'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Add to cart del producto 'Test.allTheThings() T-Shirt (Red)'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Add to cart del producto 'Sauce Labs Fleece Jacket'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y abre el carrito de compras
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia abre el carrito de compras
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-------- Lucia clicks on icono del carrito
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y continúa al formulario de checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia continua al formulario de checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-------- Lucia clicks on boton Checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y intenta continuar con nombre "", apellido "" y código postal ""
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Continue
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Entonces debe visualizar el mensaje de error "Error: First Name is required"
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y debe permanecer en el formulario de información del comprador
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/
+
+No es posible continuar el checkout sin los datos obligatorios
+----------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- 2: No es posible continuar el checkout sin los datos obligatorios ({nombre=Lucia, apellido=, codigo=, mensaje=Error: Last Name is required})
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Dado que Lucia está en la página de login de SauceDemo
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia abre la aplicacion SauceDemo
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-------- Lucia opens the browser at https://www.saucedemo.com
+[main] INFO net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider - Starting Chrome driver instance with capabilities:
+[main] INFO net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider - Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--disable-dev-shm-usage, --no-sandbox, --disable-gpu, --window-size=1920,1080, --disable-search-engine-cho..., --disable-notifications, --incognito, --remote-allow-origins=*, remote-allow-origins=*], excludeSwitches: [enable-automation], extensions: [], prefs: {credentials_enable_service: false, profile.password_manager_enabled: false, profile.password_manager_leak_detection: false}}}
+ago. 11, 2026 9:45:40 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 151
+ago. 11, 2026 9:45:40 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for 151.0.7922.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.41.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y ha iniciado sesión con el usuario estándar
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia enters 'standard_user' into campo Username
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia enters 'secret_sauce' into campo Password
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Login
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Cuando agrega 3 productos diferentes al carrito
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Add to cart del producto 'Sauce Labs Onesie'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Add to cart del producto 'Test.allTheThings() T-Shirt (Red)'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Add to cart del producto 'Sauce Labs Fleece Jacket'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y abre el carrito de compras
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia abre el carrito de compras
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-------- Lucia clicks on icono del carrito
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y continúa al formulario de checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia continua al formulario de checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-------- Lucia clicks on boton Checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y intenta continuar con nombre "Lucia", apellido "" y código postal ""
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia enters 'Lucia' into campo First Name
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Continue
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Entonces debe visualizar el mensaje de error "Error: Last Name is required"
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y debe permanecer en el formulario de información del comprador
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener -
+  _____   ___   ___   _____     ___     _     ___   ___   ___   ___
+ |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \
+   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/
+
+No es posible continuar el checkout sin los datos obligatorios
+----------------------------------------------------------------------
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-- 3: No es posible continuar el checkout sin los datos obligatorios ({nombre=Lucia, apellido=Reyes, codigo=, mensaje=Error: Postal Code is required})
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Dado que Lucia está en la página de login de SauceDemo
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia abre la aplicacion SauceDemo
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-------- Lucia opens the browser at https://www.saucedemo.com
+[main] INFO net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider - Starting Chrome driver instance with capabilities:
+[main] INFO net.serenitybdd.core.webdriver.driverproviders.ChromeDriverProvider - Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--disable-dev-shm-usage, --no-sandbox, --disable-gpu, --window-size=1920,1080, --disable-search-engine-cho..., --disable-notifications, --incognito, --remote-allow-origins=*, remote-allow-origins=*], excludeSwitches: [enable-automation], extensions: [], prefs: {credentials_enable_service: false, profile.password_manager_enabled: false, profile.password_manager_leak_detection: false}}}
+ago. 11, 2026 9:45:44 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 151
+ago. 11, 2026 9:45:44 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for 151.0.7922.76. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.41.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y ha iniciado sesión con el usuario estándar
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia enters 'standard_user' into campo Username
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia enters 'secret_sauce' into campo Password
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Login
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Cuando agrega 3 productos diferentes al carrito
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Add to cart del producto 'Sauce Labs Onesie'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Add to cart del producto 'Test.allTheThings() T-Shirt (Red)'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Add to cart del producto 'Sauce Labs Fleece Jacket'
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y abre el carrito de compras
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia abre el carrito de compras
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-------- Lucia clicks on icono del carrito
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y continúa al formulario de checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia continua al formulario de checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |-------- Lucia clicks on boton Checkout
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y intenta continuar con nombre "Lucia", apellido "Reyes" y código postal ""
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia enters 'Lucia' into campo First Name
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia enters 'Reyes' into campo Last Name
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |------ Lucia clicks on boton Continue
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Entonces debe visualizar el mensaje de error "Error: Postal Code is required"
+[main] INFO net.thucydides.model.logging.ConsoleLoggingListener - |---- Y debe permanecer en el formulario de información del comprador
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 30.101 s - in com.ceiba.qa.ui.runners.UiTestSuite
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+[INF

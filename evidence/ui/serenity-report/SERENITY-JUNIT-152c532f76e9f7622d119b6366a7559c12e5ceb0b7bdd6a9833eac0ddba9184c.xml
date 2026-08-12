@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Compra con selección dinámica de productos" skipped="0" tests="2" time="12.7" timestamp="2026-08-11 09:45:18"><testcase name="Compra exitosa validando la fórmula Subtotal + Impuesto = Total"/><testcase name="El catálogo queda ordenado de menor a mayor precio"/></testsuite>
