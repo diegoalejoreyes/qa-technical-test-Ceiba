@@ -39,7 +39,6 @@ La documentación de planeación, diseño, hallazgos y conclusiones está en [`d
 | **k6** | Pruebas de carga | Modelo de VUs nativo, *thresholds* como criterio de aceptación automatizado, script como código y huella liviana en CI. |
 | **GitHub Actions** | CI/CD | Nativo del repositorio, con artefactos y triggers de `push`/`pull_request`. |
 
-> La justificación ampliada —incluida la comparación **k6 vs. JMeter** y por qué **no** se usó Serenity para la prueba de carga— está en [`documentation/01-estrategia-de-pruebas.md`](documentation/01-estrategia-de-pruebas.md#6-herramientas-seleccionadas-y-justificación).
 
 ## 3. Requisitos
 
@@ -82,11 +81,6 @@ mvn -B clean install -DskipTests
 | `src/test/resources/config.properties` | URLs, credenciales, SLA de tiempo de respuesta y esperas. |
 | `pom.xml` | Versiones, suites (`it.test`), filtro de tags (`tags`) y perfil de entorno (`environment`). |
 
-Cualquier propiedad de `config.properties` puede sobrescribirse por línea de comandos:
-
-```bash
-mvn clean verify -Drestfulbooker.url=https://mi-ambiente.com -Drestfulbooker.sla.responseTimeMs=5000
-```
 
 Perfiles de ejecución del navegador:
 
@@ -104,21 +98,11 @@ mvn clean verify
 ### Solo una suite
 
 ```bash
-mvn clean verify -Dit.test=UiTestSuite      # solo UI
-mvn clean verify -Dit.test=ApiTestSuite     # solo API
+mvn clean verify -Dtags="@api"    # solo API
+mvn clean verify -Dtags="@ui"     # solo API
+mvn clean verify -Dtags="@bug"    # escenarios que documentan hallazgos (fallan a propósito)
 ```
 
-### Filtrando por tags
-
-```bash
-mvn clean verify -Dtags="@smoke"
-mvn clean verify -Dtags="@regresion"
-mvn clean verify -Dtags="@ui and @negativo"
-mvn clean verify -Dtags="@bug"              # escenarios que documentan hallazgos (fallan a propósito)
-```
-
-> Por defecto se ejecuta `not @bug`: los escenarios que documentan defectos abiertos quedan
-> fuera del *quality gate* y se ejecutan en un job informativo del pipeline.
 
 ### Pruebas de rendimiento
 
@@ -141,6 +125,9 @@ mvn clean verify -Denvironment=ci
 | Serenity (página única) | `target/site/serenity/serenity-summary.html` | Versión de un solo archivo, fácil de adjuntar o compartir. |
 | k6 (JSON) | `reports/performance/summary.json` | Datos crudos de todas las métricas. |
 | k6 (HTML) | `reports/performance/summary.html` | Reporte visual de la prueba de carga. |
+
+Nota: para las evidencias adjuntas en el proyecto copie todos los archivos del reporte que genera serenity por defecto en la carpeta de evidence/api y evidence/ui
+      para tener acceso al reporte ejecutado en local por si en la ejecucion del pipeline no se puede ver
 
 Regenerar el reporte agregado de Serenity sin volver a ejecutar las pruebas:
 
@@ -203,25 +190,12 @@ qa-technical-test/
 └── pom.xml
 ```
 
-## 10. Resultados
-
-*(Completar tras la ejecución final.)*
-
-| Suite | Escenarios | Pasaron | Fallaron | Duración |
-|---|---|---|---|---|
-| UI (SauceDemo) | `___` | `___` | `___` | `___` |
-| API (Restful Booker) | `___` | `___` | `___` | `___` |
-| Escenarios `@bug` (hallazgos) | 1 | 0 | 1 *(esperado)* | `___` |
-| Performance (k6) | – | Thresholds: `___` | – | 2 min |
-
-**Hallazgos:** 10 defectos documentados (2 de severidad Alta) — ver
-[`documentation/03-reporte-de-hallazgos.md`](documentation/03-reporte-de-hallazgos.md).
 
 ## 11. Decisiones técnicas relevantes
 
 1. **Screenplay en lugar de Page Object.** Los flujos comparten pasos (login, agregar al carrito, abrir el carrito). Screenplay permite componerlos como Tasks reutilizables sin cadenas de herencia entre páginas.
 
-2. **Un solo repositorio, dos suites, un reporte.** UI y API comparten `pom.xml`, configuración y reportería, pero se ejecutan de forma independiente (`-Dit.test=`). Se cumple el requisito de convivencia sin acoplar las suites entre sí.
+2. **Un solo repositorio, dos suites, un reporte.** UI y API comparten `pom.xml`, configuración y reportería, pero se ejecutan de forma independiente por tags. Se cumple el requisito de convivencia sin acoplar las suites entre sí.
 
 3. **`BigDecimal` y nunca `double` para dinero.** `0.1 + 0.2 != 0.3` en punto flotante. Validar un total de compra con `double` es un defecto esperando ocurrir; todos los cálculos usan `BigDecimal` con escala 2 y `RoundingMode.HALF_UP`.
 
@@ -229,17 +203,13 @@ qa-technical-test/
 
 5. **Cero `Thread.sleep()`.** Toda sincronización usa esperas explícitas de Serenity (`WaitUntil(...).forNoMoreThan(n).seconds()`), configurables desde `config.properties`.
 
-6. **Independencia y limpieza garantizadas.** Navegador nuevo por escenario (`restart.browser.for.each = scenario`) y hook `@After` que elimina la reserva creada aunque el escenario falle.
+6. **Los defectos conocidos se automatizan y se etiquetan.** El escenario que documenta el hallazgo API-002 está escrito contra el comportamiento **esperado** y etiquetado `@bug`, fuera del *quality gate*. Cuando el defecto se corrija, pasará a verde y bastará quitar la etiqueta: la prueba es el criterio de cierre del defecto.
 
-7. **Los defectos conocidos se automatizan y se etiquetan.** El escenario que documenta el hallazgo API-002 está escrito contra el comportamiento **esperado** y etiquetado `@bug`, fuera del *quality gate*. Cuando el defecto se corrija, pasará a verde y bastará quitar la etiqueta: la prueba es el criterio de cierre del defecto.
+7. **Thresholds de k6 como criterio de salida.** El análisis de rendimiento no depende de que alguien lea un reporte: si P90, P95 o la tasa de error se degradan, k6 falla y el pipeline se detiene.
 
-8. **Aserción laxa y documentada para `DELETE`.** El ciclo de vida acepta 200/201/204 con un comentario explícito que remite al hallazgo API-001: la prueba no oculta la desviación, pero tampoco bloquea la validación del flujo completo por un código de estado no estándar del proveedor.
+8. **Warm-up antes de medir.** Restful Booker se suspende por inactividad. Sin `GET /ping` previo, la primera latencia contaminaría tanto las aserciones de SLA como los percentiles de la prueba de carga.
 
-9. **Thresholds de k6 como criterio de salida.** El análisis de rendimiento no depende de que alguien lea un reporte: si P90, P95 o la tasa de error se degradan, k6 falla y el pipeline se detiene.
-
-10. **Warm-up antes de medir.** Restful Booker se suspende por inactividad. Sin `GET /ping` previo, la primera latencia contaminaría tanto las aserciones de SLA como los percentiles de la prueba de carga.
-
-11. **Configuración separada del código.** URLs, credenciales y SLAs viven en `config.properties`, sobrescribibles por `-D` desde CI. Cambiar de ambiente no requiere tocar una sola línea de Java.
+9. **Configuración separada del código.** URLs, credenciales y SLAs viven en `config.properties`, sobrescribibles por `-D` desde CI. Cambiar de ambiente no requiere tocar una sola línea de Java.
 
 ## 12. Documentación
 
